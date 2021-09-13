@@ -28,6 +28,7 @@ setuptools.setup(
     entry_points={
         'gn_module': [
             'code = gn_module_template:MODULE_CODE',
+            'picto = gn_module_template:MODULE_PICTO',
             'blueprint = gn_module_template.blueprint:blueprint',
             'config_schema = gn_module_template.conf_schema_toml:GnModuleSchemaConf',
             'migrations = gn_module_template:migrations',
