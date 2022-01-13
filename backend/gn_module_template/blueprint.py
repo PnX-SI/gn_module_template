@@ -1,7 +1,6 @@
 from flask import Blueprint, current_app, session
 
 from geonature.utils.utilssqlalchemy import json_resp
-from geonature.utils.env import get_id_module
 
 # import des fonctions utiles depuis le sous-module d'authentification
 from geonature.core.gn_permissions import decorators as permissions

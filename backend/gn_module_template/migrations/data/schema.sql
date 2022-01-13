@@ -18,5 +18,5 @@ SET default_with_oids = false;
 ------------------------
 
 CREATE TABLE my_table(
-    pk serial NOT NULL,
+    pk serial NOT NULL
 );
