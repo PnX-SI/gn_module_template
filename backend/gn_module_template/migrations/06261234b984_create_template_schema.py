@@ -18,14 +18,18 @@ branch_labels = ('template',)
 depends_on = None
 
 
-schema = 'gn_template'
+schema = 'my_schema'
 
 
 def upgrade():
-    operations = importlib.resources.read_text("gn_module_template.migrations.data", "schema.sql")
-    op.execute(operations)
+    op.execute(f"CREATE SCHEMA {schema}")
+    op.create_table(
+        'my_table',
+        sa.Column('id', sa.INTEGER, primary_key=True),
+        schema=schema,
+    )
 
 
 def downgrade():
-    op.execute(f'DROP TABLE {schema}.my_table')
-    op.execute(f'DROP SCHEMA {schema}')
+    op.drop_table('my_table', schema=schema)
+    op.execute(f"DROP SCHEMA {schema}")

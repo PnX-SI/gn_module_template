@@ -1,0 +1,15 @@
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = [
+    "backend/gn_module_template/tests/",
+]
+
+[tool.coverage.run]
+source = [
+    "backend/gn_module_template/",
+]
+omit = [
+    "*/tests/*",
+    "*/migrations/*",
+]
+

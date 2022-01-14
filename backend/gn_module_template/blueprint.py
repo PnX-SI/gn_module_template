@@ -1,39 +1,63 @@
-from flask import Blueprint, current_app, session
+from flask import Blueprint, current_app
+from werkzeug.exceptions import Forbidden
 
-from geonature.utils.utilssqlalchemy import json_resp
+from geonature.core.gn_permissions.decorators import check_cruved_scope
+from geonature.core.gn_permissions.tools import get_scopes_by_action
+from geonature.utils.env import db
 
-# import des fonctions utiles depuis le sous-module d'authentification
-from geonature.core.gn_permissions import decorators as permissions
-from geonature.core.gn_permissions.tools import get_or_fetch_user_cruved
-
-blueprint = Blueprint('<MY_MODULE_NAME>', __name__)
-
-
-# Exemple d'une route simple
-@blueprint.route('/test', methods=['GET'])
-@json_resp
-def get_view():
-    q = DB.session.query(MySQLAModel)
-    data = q.all()
-    return [d.as_dict() for d in data]
+from .models import MyModel
+from .schemas import MyModelSchema
 
 
-# Exemple d'une route protégée le CRUVED du sous module d'authentification
-@blueprint.route('/test_cruved', methods=['GET'])
-@permissions.check_cruved_scope('R', module_code="MY_MODULE_CODE")
-@json_resp
-def get_sensitive_view(info_role):
-    # Récupérer l'id de l'utilisateur qui demande la route
-    id_role = info_role.id_role
-    # Récupérer la portée autorisée à l'utilisateur pour l'acton 'R' (read)
-    read_scope = info_role.value_filter
+blueprint = Blueprint('gn_module_template', __name__)
 
-    #récupérer le CRUVED complet de l'utilisateur courant
-    user_cruved = get_or_fetch_user_cruved(
-        session=session,
-        id_role=info_role.id_role,
-        module_code='MY_MODULE_CODE',
-    )
-    q = DB.session.query(MySQLAModel)
-    data = q.all()
-    return [d.as_dict() for d in data]
+
+@blueprint.route('/my_models/', methods=['GET'])
+@check_cruved_scope('R', module_code='TEMPLATE', get_scope=True)
+def list_my_model(scope):
+    obj = MyModel.query.all()#filter_by_scope(scope).all()
+    obj_schema = MyModelSchema()
+    return obj_schema.jsonify(obj, many=True)
+
+
+@blueprint.route('/my_models/<int:pk>', methods=['GET'])
+@check_cruved_scope('R', module_code='TEMPLATE', get_scope=True)
+def get_my_model(scope, pk):
+    obj = MyModel.query.get_or_404(pk)
+    if not obj.has_instance_permission(scope):
+        raise Forbidden
+    obj_schema = MyModelSchema()
+    return obj_schema.jsonify(obj)
+
+
+@blueprint.route('/my_models/', methods=['POST'])
+@check_cruved_scope('C', module_code='TEMPLATE')
+def create_my_model():
+    obj_schema = MyModelSchema()
+    obj = obj_schema.load(obj_schema)
+    db.session.add(obj)
+    db.session.commit()
+    return obj_schema.jsonify(obj)
+
+
+@blueprint.route('/my_models/<int:pk>', methods=['PATCH'])
+@check_cruved_scope('U', module_code='TEMPLATE', get_scope=True)
+def update_my_model(scope, pk):
+    obj = MyModel.query.get_or_404(pk)
+    if not obj.has_instance_permission(scope):
+        raise Forbidden
+    obj_schema = MyModelSchema()
+    obj_schema.load(request.params, instance=obj)
+    db.session.commit()
+    return obj_schema.jsonify(obj)
+
+
+@blueprint.route('/my_models/<int:pk>', methods=['DELETE'])
+@check_cruved_scope('D', module_code='TEMPLATE', get_scope=True)
+def delete_my_model(scope, pk):
+    obj = MyModel.query.get_or_404(pk)
+    if not obj.has_instance_permission(scope):
+        raise Forbidden
+    db.session.delete(obj)
+    db.session.commit()
+    return '', 204

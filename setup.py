@@ -22,7 +22,6 @@ setuptools.setup(
     url='https://github.com/PnX-SI/gn_module_template',
     packages=setuptools.find_packages('backend'),
     package_dir={'': 'backend'},
-    package_data={'gn_module_template.migrations': ['data/*.sql']},
     install_requires=requirements,
     zip_safe=False,
     entry_points={
