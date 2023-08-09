@@ -4,14 +4,14 @@ Template de création d'un module GeoNature
 Ce template décrit la structure obligatoire d'un module GeoNature.
 
 - Le backend est développé en Python grâce au framework Flask.
-- Le frontend est développé grâce au framework Angular (voir la version actuelle du coeur)
+- Le frontend est développé grâce au framework Angular (voir la version actuelle du coeur de GeoNature)
 
 GeoNature prévoit cependant l'intégration de module "externe" dont le frontend serait développé dans d'autres technologies. La gestion de l'intégration du module est à la charge du développeur.
 
 Documentation : 
 
-- Développer un module GeoNature : http://docs.geonature.fr/development.html#developper-un-gn-module
-- Installer un module GeoNature : http://docs.geonature.fr/development.html#installer-un-gn-module
+- Développer un module GeoNature : https://docs.geonature.fr/development.html#developper-un-module-externe
+- Installer un module GeoNature : https://docs.geonature.fr/installation.html#installation-d-un-module-geonature
 
 
 Fichiers relatifs au bon fonctionnement du module
