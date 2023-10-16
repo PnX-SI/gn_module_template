@@ -1,1 +1,1 @@
-# {{cookiecutter.GeonatureModuleTest}}
+# {{cookiecutter.module_name}}
