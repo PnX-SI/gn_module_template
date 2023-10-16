@@ -8,9 +8,9 @@ SET client_min_messages = warning;
 --------------
 --------------
 
-CREATE SCHEMA IF NOT EXISTS gn_template;
+CREATE SCHEMA IF NOT EXISTS gn_{{cookiecutter.module_api_prefix}};
 
-SET search_path = gn_template, pg_catalog, public;
+SET search_path = gn_{{cookiecutter.module_api_prefix}}, pg_catalog, public;
 SET default_with_oids = false;
 
 ------------------------
