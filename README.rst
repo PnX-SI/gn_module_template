@@ -13,6 +13,18 @@ Documentation :
 - Développer un module GeoNature : https://docs.geonature.fr/development.html#developper-un-module-externe
 - Installer un module GeoNature : https://docs.geonature.fr/installation.html#installation-d-un-module-geonature
 
+Génération du template à l'aide de cookiecutter
+===============================================
+
+Pour générer le squelette de votre module, il faut utiliser `cookiecutter`.
+
+Installer ``cookiecutter`` à l'aide de la commande suivante:
+
+  pip install cookiecutter
+
+Une fois installé, lancer la commande suivante dans le terminal:
+
+  cookiecutter gh:PnX-SI/gn_module_template -c cookiecutter-generation
 
 Fichiers relatifs au bon fonctionnement du module
 =================================================
