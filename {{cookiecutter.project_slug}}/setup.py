@@ -22,7 +22,7 @@ setuptools.setup(
     url="{{cookiecutter.url_repository}}",
     packages=setuptools.find_packages("backend"),
     package_dir={"": "backend"},
-    package_data={"{{cookiecutter.module_name}}.migrations": ["data/*.sql"]},
+    package_data={"{{cookiecutter.module_package_name}}.migrations": ["data/*.sql"]},
     install_requires=requirements,
     zip_safe=False,
     entry_points={
