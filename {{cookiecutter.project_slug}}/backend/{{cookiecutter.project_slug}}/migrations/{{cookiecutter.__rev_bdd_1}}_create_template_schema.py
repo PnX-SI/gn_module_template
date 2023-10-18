@@ -1,6 +1,6 @@
 """create_template_schema
 
-Revision ID: 06261234b984
+Revision ID: {{cookiecutter.__rev_bdd_1}}
 Revises: 
 Create Date: 2021-03-29 18:38:24.512562
 
@@ -12,13 +12,13 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = "06261234b984"  # CHANGE ME!
+revision = "{{cookiecutter.__rev_bdd_1}}"  # CHANGE ME!
 down_revision = None
-branch_labels = ("{{cookiecutter.module_package_name}}",)
+branch_labels = ("{{cookiecutter.module_code.lower()}}",)
 depends_on = None
 
 
-schema = "gn_{{cookiecutter.module_api_prefix}}"
+schema = "gn_{{cookiecutter.module_code.lower()}}"
 
 
 def upgrade():

@@ -1,12 +1,14 @@
 {
   "module_name": "GeonatureModuleTest",
   "module_package_name": "gn_module_test",
-  "module_package_name_code": "{{cookiecutter.module_package_name.upper()}}",
-  "module_api_prefix": "test",
+  "module_code": "TEST",
+  "__module_api_prefix": "{{cookiecutter.module_code.lower()}}",
   "project_slug": "{{cookiecutter.module_package_name}}",
   "module_description": "This is an sample module.",
   "author": "Anonymous",
   "maintainer": "Parcs nationaux des Écrins et des Cévennes",
   "maintainer_email": "geonature@ecrins-parcnational.fr",
-  "url_repository": "https://github.com/PnX-SI/{{cookiecutter.module_package_name}}"
+  "url_repository": "https://github.com/PnX-SI/{{cookiecutter.module_package_name}}",
+  "__rev_bdd_1": "{% for n in range(10) %}{{ range(10) | random }}{% endfor %}",
+  "__rev_bdd_2": "{% for n in range(10)%}{{ range(10) | random }}{% endfor %}"
 }
