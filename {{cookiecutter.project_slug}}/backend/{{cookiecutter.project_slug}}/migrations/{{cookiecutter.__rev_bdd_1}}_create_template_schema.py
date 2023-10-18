@@ -2,7 +2,7 @@
 
 Revision ID: {{cookiecutter.__rev_bdd_1}}
 Revises: 
-Create Date: 2021-03-29 18:38:24.512562
+Create Date: {% now 'utc' %}
 
 """
 import importlib

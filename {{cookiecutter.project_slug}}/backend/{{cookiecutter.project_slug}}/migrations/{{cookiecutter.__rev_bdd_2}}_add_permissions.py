@@ -2,7 +2,7 @@
 
 Revision ID: {{cookiecutter.__rev_bdd_2}}
 Revises: {{cookiecutter.__rev_bdd_1}}
-Create Date: 2023-10-17 15:43:02.412719
+Create Date: {% now 'utc' %}
 
 """
 from alembic import op
