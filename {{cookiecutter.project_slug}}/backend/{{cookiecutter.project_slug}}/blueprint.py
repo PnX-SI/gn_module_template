@@ -10,7 +10,7 @@ from .models import MyModel
 
 blueprint = Blueprint(
     "{{cookiecutter.__module_api_prefix}}", __name__
-)  # blueprint name have no impact
+)  # blueprint prefix should be different from existing ones in GeoNature ! 
 
 
 # Exemple d'une route simple
