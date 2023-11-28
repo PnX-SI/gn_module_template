@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from geonature.utils.utilssqlalchemy import json_resp
+from utils_flask_sqla.response import json_resp
 from geonature.utils.env import DB
 
 # import des fonctions utiles depuis le sous-module d'authentification
@@ -10,7 +10,7 @@ from .models import MyModel
 
 blueprint = Blueprint(
     "{{cookiecutter.__module_api_prefix}}", __name__
-)  # blueprint prefix should be different from existing ones in GeoNature ! 
+)  # blueprint prefix should be different from existing ones in GeoNature !
 
 
 # Exemple d'une route simple

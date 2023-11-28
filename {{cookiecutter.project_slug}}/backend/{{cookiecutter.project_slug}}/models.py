@@ -8,7 +8,8 @@ from sqlalchemy.dialects.postgresql import UUID
 from geoalchemy2 import Geometry
 
 # méthode de sérialisation
-from geonature.utils.utilssqlalchemy import serializable, geoserializable
+from utils_flask_sqla.serializers import serializable
+from utils_flask_sqla_geo.serializers import geoserializable
 
 # instance de la BDD
 from geonature.utils.env import DB

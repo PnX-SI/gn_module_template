@@ -10,7 +10,7 @@ Pour bien commencer, nous fournissons ce _template_ (ou modèle dans la langue d
    - `Marschmallow` pour la sérialisation d'objet python
    - `Celery` pour la gestion de tâches asynchrones
    - `alembic` pour la gestion des révisions de modifications de la base de données
-2. Côté interface utilisateur (client), la partie **frontend** s'appuie sur le framework `Angular` et programmée par le trio `HTML/Javascript/CSS`. Actuellement GeoNature utilise la version 15 d'angular. D'autres librairies sont déjà installées dans GeoNature comme :
+2. Côté interface utilisateur (client), la partie **frontend** s'appuie sur le framework `Angular` et programmée par le trio `HTML/Javascript/CSS`. D'autres librairies sont déjà installées dans GeoNature comme :
    - `chart.js` Pour l'affichage de graphique (lineplot, scatterplot, etc.)
    - `bootstrap` Pour profiter de Bootstrap, le framework CSS
    - `leaflet` Pour l'affichage de carte interactive
@@ -159,7 +159,7 @@ Si vous utilisez des librairies Python qui ne se trouvent pas dans les dépendan
 
 ### Frontend
 
-Le frontend de GeoNature s'appuie sur le framework `Angular` (version 15). Cette section n'a pas pour but de faire un cours sur Angular mais donnez quelques pointeurs.
+Le frontend de GeoNature s'appuie sur le framework `Angular`. Cette section n'a pas pour but de faire un cours sur Angular mais donnez quelques pointeurs.
 
 Si vous commencez sur Angular, les tutoriels sur la documentation officielle peuvent vous aider : https://angular.io/tutorial
 
@@ -190,7 +190,7 @@ export class NomService {
 }
 ```
 
-ou en utilisant la ligne de commande de angular : `ng generate service <nomservice>`
+soit en utilisant la ligne de commande de angular : `ng generate service <nomservice>`
 
 #### Bonnes pratiques : Appel API/Backend
 
